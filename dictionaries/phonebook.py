@@ -1,15 +1,9 @@
 
-def main_menu():
+def main_menu(menu_text):
   choice = 0
   while choice not in range(1, 6):
-    print """\n\n\nElectronic Phone Book
-=====================
-1. Look up an entry
-2. Set an entry
-3. Delete an entry
-4. List all entries
-5. Quit"""
-    choice = int(raw_input("What do you want to do (1-5)? "))
+    print menu_text
+    choice = int(raw_input("What do you want to do? "))
   return choice
 
 # =======================================
@@ -48,14 +42,22 @@ def print_phonebook(book):
 
 # =======================================
 
+
 def main():
   phonebook = {} # empty phonebook
 
   menu_choice = -1 # initial dummy value
+  text_for_main_menu = """\n\n\nElectronic Phone Book
+=====================
+1. Look up an entry
+2. Set an entry
+3. Delete an entry
+4. List all entries
+5. Quit"""
 
   while menu_choice != 5:
     # Get the choice from the user.
-    menu_choice = main_menu()
+    menu_choice = main_menu(text_for_main_menu)
 
     if menu_choice == 1:
       # They want to add.
