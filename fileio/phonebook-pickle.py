@@ -49,6 +49,12 @@ def save_entries(book):
   save_file.close()
   print "saved!"
 
+def load_entries():
+  save_file = open('pickled-phonebook.dat', 'r')
+  book = pickle.load(save_file)
+  save_file.close()
+  return book
+  
 
 # =======================================
 def main():
@@ -62,9 +68,10 @@ def main():
 3. Delete an entry
 4. List all entries
 5. Save entries to a file
-6. Quit"""
+6. Restore saved entries from file
+7. Quit"""
 
-  QUIT_OPTION = 6
+  QUIT_OPTION = 7
 
   while menu_choice != QUIT_OPTION:
     # Get the choice from the user.
@@ -91,6 +98,10 @@ def main():
     elif menu_choice == 5:
       # Show the whole phonebook.
       save_entries(phonebook)
+
+    elif menu_choice == 6:
+      # Show the whole phonebook.
+      phonebook = load_entries()
   
   # All done.
   print "Bye"
