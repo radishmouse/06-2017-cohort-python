@@ -9,24 +9,43 @@ def main_menu(menu_text, max):
 
 # =======================================
 
+def get_info(field):
+  return raw_input("%s: " % field)
+
 def get_name():
-  return raw_input("Name: ")
+  return get_info("Name")
 
 def get_number():
-  return raw_input("Phone Number: ")
+  return get_info("Phone Number")
+
+def get_email():
+  return get_info("Email")
+
+def get_web():
+  return get_info("Website")
 
 # =======================================
 
 def print_entry(name, book):
   if name in book:
-    print "Found entry for %s: %s" % (name, book[name])
+    print "Found entry for %s: %s, %s [%s]" % (name, 
+                                              book[name]['number'],
+                                              book[name]['email'],
+                                              book[name]['web'],
+                                              )
   else:
     print "No one by that name"
 
 def set_entry(book):
   name = get_name()
   number = get_number()
-  book[name] = number
+  email = get_email()
+  web = get_web()
+  book[name] = {
+    "number": number,
+    "email": email,
+    "web": web,
+  }
   print "Entry stored for %s." % name
   return book
 
