@@ -10,7 +10,12 @@ class Person(object):
 
   def print_contact_info(self):
     print "%s's email: %s, %s's phone number: %s" % (self.name, self.email, self.name, self.phone)
+
+  def add_friend(self, friend):
+    self.friends.append(friend)
   
+  def num_friends(self):
+    return len(self.friends)
 
 
 sonny = Person('Sonny', 'sonny@hotmail.com', '483-485-4948')
@@ -25,6 +30,11 @@ print "%s - %s" % (jordan.email, jordan.phone)
 sonny.print_contact_info()
 jordan.print_contact_info()
 
-jordan.friends.append(sonny)
-sonny.friends.append(jordan)
+# jordan.friends.append(sonny)
+# sonny.friends.append(jordan)
+jordan.add_friend(sonny)
+sonny.add_friend(jordan)
+
+print jordan.num_friends()
+print sonny.num_friends()
 
