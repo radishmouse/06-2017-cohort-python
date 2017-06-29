@@ -4,8 +4,10 @@ class Person(object):
     self.email = email
     self.phone = phone
     self.friends = []
+    self.greeting_count = 0
   
   def greet(self, other_person):
+    self.greeting_count = self.greeting_count + 1
     print 'Hello %s, I am %s' % (other_person.name, self.name)
 
   def print_contact_info(self):
@@ -23,6 +25,9 @@ jordan = Person('Jordan', 'jordan@aol.com', '495-586-3456')
 
 sonny.greet(jordan)
 jordan.greet(sonny)
+
+print sonny.greeting_count
+print jordan.greeting_count
 
 print "%s - %s" % (sonny.email, sonny.phone)
 print "%s - %s" % (jordan.email, jordan.phone)
