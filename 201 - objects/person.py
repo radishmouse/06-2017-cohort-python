@@ -18,6 +18,9 @@ class Person(object):
   
   def num_friends(self):
     return len(self.friends)
+  
+  def __repr__(self):
+    return '%s %s %s' % (self.name, self.email, self.phone)
 
 
 sonny = Person('Sonny', 'sonny@hotmail.com', '483-485-4948')
@@ -43,3 +46,5 @@ sonny.add_friend(jordan)
 print jordan.num_friends()
 print sonny.num_friends()
 
+print jordan
+print sonny
