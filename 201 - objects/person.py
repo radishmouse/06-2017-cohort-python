@@ -7,6 +7,8 @@ class Person(object):
   def greet(self, other_person):
     print 'Hello %s, I am %s' % (other_person.name, self.name)
 
+  def print_contact_info():
+    print "%s's email: %s, %s's phone number: %s" % (self.name, self.email, self.name, self.phone)
 
 
 sonny = Person('Sonny', 'sonny@hotmail.com', '483-485-4948')
